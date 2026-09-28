@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - ShopEasy</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="brand-name">
+            <div class="shopeasy-logo-symbol">
+                <div class="bag-handle"></div>
+                <div class="bag-body"><span class="bag-check">✓</span></div>
+            </div>
+            <span class="brand-title-text">ShopEasy Profile</span>
+        </a>
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Back to Store</a>
+    </header>
+
+    <main class="store-container" style="max-width: 600px; margin-top: 40px;">
+        <div style="background:white; padding:30px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+            <h2>Account Dashboard</h2>
+            <p style="margin-top: 15px;"><strong>Name:</strong> <span id="profileNameDisplay">Guest</span></p>
+            <p style="margin-top: 10px;"><strong>Email:</strong> <span id="profileEmailDisplay">Not logged in</span></p>
+            <p style="margin-top: 10px; color: #16a34a;"><strong>Account Status:</strong> <span id="profileStatusDisplay">Inactive</span></p>
+            
+            <button onclick="logoutUser()" style="background:#ef4444; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; margin-top:25px; font-size: 1rem;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout Account
+            </button>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = localStorage.getItem("shopeasy_logged_in") === "true";
+            if (isLoggedIn) {
+                document.getElementById("profileNameDisplay").textContent = localStorage.getItem("shopeasy_user_name") || "User";
+                document.getElementById("profileEmailDisplay").textContent = localStorage.getItem("shopeasy_user_email") || "user@shopeasy.com";
+                document.getElementById("profileStatusDisplay").textContent = "Active & Verified Buyer";
+            }
+        });
+    </script>
+</body>
+</html>

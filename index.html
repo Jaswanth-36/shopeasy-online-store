@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy - Discover Endless Shopping</title>
+    <!-- Corrected CSS Link -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Welcome to ShopEasy Shopping! Enjoy Flat 25% Off Your First Order Today.
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="brand-name">
+            <!-- Custom ShopEasy Shopping Symbol -->
+            <div class="shopeasy-logo-symbol">
+                <div class="bag-handle"></div>
+                <div class="bag-body">
+                    <span class="bag-check">✓</span>
+                </div>
+            </div>
+            <div class="brand-text-wrapper">
+                <span class="brand-title-text">ShopEasy</span>
+                <span class="brand-badge-tag">Store</span>
+            </div>
+        </a>
+        
+        <div class="nav-right">
+            <a href="#product-section" class="nav-link" onclick="filterByCategoryDropdown('all')">New Arrivals</a>
+            <a href="#tech-gear-section" class="nav-link" onclick="scrollToSection('tech-gear-section')">Trending</a>
+            <a href="#product-section" class="nav-link" onclick="scrollToSection('product-section')">Categories</a>
+
+            <!-- User Profile Menu -->
+            <div class="user-profile-menu">
+                <div class="user-avatar" id="userAvatarText">J</div>
+                <span class="user-name-text" id="navbarUserName">Hi, Guest</span>
+                <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                
+                <div class="user-dropdown">
+                    <div class="user-dropdown-content">
+                        <a href="profile.html" class="user-dropdown-item"><i class="fa-solid fa-user-gear"></i> My Profile</a>
+                        <a href="cart.html" class="user-dropdown-item"><i class="fa-solid fa-box-open"></i> Orders</a>
+                        <a href="cart.html" class="user-dropdown-item"><i class="fa-solid fa-heart"></i> Wishlist</a>
+                        <a href="login.html" id="authDropdownLink" class="user-dropdown-item logout"><i class="fa-solid fa-right-from-bracket"></i> Login / Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Button Linked to cart.html -->
+            <a href="cart.html" class="cart-icon-btn">
+                <i class="fa-solid fa-cart-shopping"></i> Cart 
+                <span class="cart-badge">2</span>
+            </a>
+        </div>
+    </header> 
+
+    <!-- Main Content Container -->
+    <main class="store-container">
+
+        <!-- ShopEasy Branded Top Banner Section -->
+        <section class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=1400&q=80" alt="ShopEasy Storefront & Products" class="hero-banner-img">
+            <div class="hero-banner-content">
+                <div>
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-bag-shopping"></i> ShopEasy Exclusive
+                    </div>
+                    <h1>Welcome to ShopEasy</h1>
+                    <p>Discover exceptional style, tech gadgets, and everyday essentials curated just for you.</p>
+                </div>
+                <a href="#product-section" class="hero-browse-btn" onclick="scrollToSection('product-section')">Browse Collection</a>
+            </div>
+        </section>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="filter-bar" id="product-section">
+            <input type="text" id="productSearchInput" class="search-input" placeholder="Search ShopEasy products (e.g., watch, shoes, tech)..." onkeyup="filterProducts()">
+            <select id="categorySelect" class="category-select" onchange="filterByCategoryDropdown()">
+                <option value="all">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home & Living</option>
+            </select>
+        </div>
+
+        <!-- PRODUCT GRID PART 1 (Items 1 - 8) -->
+        <div class="product-grid" id="productGridContainer">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="accessories" data-title="Minimalist Chronograph Watch">
+                <span class="discount-badge">-30%</span>
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Watch" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Accessories</span>
+                    <h3 class="product-title">Minimalist Chronograph Watch</h3>
+                    <div class="rating-box">★★★★★ <span>(142)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$129.00</span>
+                        <span class="old-price">$185.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card" data-category="electronics" data-title="Wireless Studio Headphones">
+                <span class="discount-badge">-20%</span>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="Headphones" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Electronics</span>
+                    <h3 class="product-title">Wireless Studio Headphones</h3>
+                    <div class="rating-box">★★★★☆ <span>(98)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$199.00</span>
+                        <span class="old-price">$249.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="fashion" data-title="Active Runner Red Sneakers">
+                <span class="discount-badge">-15%</span>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Sneakers" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Active Runner Red Sneakers</h3>
+                    <div class="rating-box">★★★★★ <span>(310)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$85.00</span>
+                        <span class="old-price">$100.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="electronics" data-title="Vintage Retro Polaroid Camera">
+                <span class="discount-badge">-40%</span>
+                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Camera" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Electronics</span>
+                    <h3 class="product-title">Vintage Retro Polaroid Camera</h3>
+                    <div class="rating-box">★★★★☆ <span>(64)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$75.00</span>
+                        <span class="old-price">$125.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card" data-category="electronics" data-title="Pro Wireless Gaming Controller">
+                <span class="discount-badge">-25%</span>
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90" alt="Controller" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Gaming</span>
+                    <h3 class="product-title">Pro Wireless Gaming Controller</h3>
+                    <div class="rating-box">★★★★★ <span>(215)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$59.00</span>
+                        <span class="old-price">$79.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-category="fashion" data-title="Classic UV-Protection Sunglasses">
+                <span class="discount-badge">-10%</span>
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f" alt="Sunglasses" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Fashion</span>
+                    <h3 class="product-title">Classic UV-Protection Sunglasses</h3>
+                    <div class="rating-box">★★★★☆ <span>(45)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$45.00</span>
+                        <span class="old-price">$50.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-category="electronics" data-title="Fitness Tracker Smartwatch">
+                <span class="discount-badge">-35%</span>
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12" alt="Smartwatch" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Electronics</span>
+                    <h3 class="product-title">Fitness Tracker Smartwatch</h3>
+                    <div class="rating-box">★★★★★ <span>(530)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$65.00</span>
+                        <span class="old-price">$99.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-category="fashion" data-title="Urban Street Casual Sneakers">
+                <span class="discount-badge">-20%</span>
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" alt="Shoes" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Urban Street Casual Sneakers</h3>
+                    <div class="rating-box">★★★★☆ <span>(88)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$80.00</span>
+                        <span class="old-price">$100.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MID-PAGE BANNER 1 -->
+        <div id="tech-gear-section" class="promo-banner banner-dark">
+            <div>
+                <h2>⚡ Featured Audio & Tech Essentials</h2>
+                <p>Discover top-tier acoustics and gear engineered for elite performance.</p>
+            </div>
+            <a href="#product-section" class="promo-btn btn-light-cyan" onclick="filterDropdownByValue('electronics')">View Tech Gear</a>
+        </div>
+
+        <!-- PRODUCT GRID PART 2 (Items 9 - 16) -->
+        <div class="product-grid">
+            <!-- Product 9 -->
+            <div class="product-card" data-category="fashion" data-title="Luxury Essence Eau De Parfum">
+                <span class="discount-badge">-15%</span>
+                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad" alt="Perfume" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Beauty</span>
+                    <h3 class="product-title">Luxury Essence Eau De Parfum</h3>
+                    <div class="rating-box">★★★★★ <span>(120)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$84.00</span>
+                        <span class="old-price">$99.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card" data-category="home" data-title="Waterproof Travel Backpack">
+                <span class="discount-badge">-50%</span>
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62" alt="Bag" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Travel</span>
+                    <h3 class="product-title">Waterproof Travel Backpack</h3>
+                    <div class="rating-box">★★★★☆ <span>(340)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$49.00</span>
+                        <span class="old-price">$99.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-category="fashion" data-title="Premium Linen Casual Shirt">
+                <span class="discount-badge">-25%</span>
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985" alt="Shirt" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Fashion</span>
+                    <h3 class="product-title">Premium Linen Casual Shirt</h3>
+                    <div class="rating-box">★★★★☆ <span>(77)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$37.00</span>
+                        <span class="old-price">$50.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-category="home" data-title="Organic Skincare Glow Kit">
+                <span class="discount-badge">-30%</span>
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Cosmetics" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Beauty</span>
+                    <h3 class="product-title">Organic Skincare Glow Kit</h3>
+                    <div class="rating-box">★★★★★ <span>(204)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$42.00</span>
+                        <span class="old-price">$60.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-category="electronics" data-title="Handheld Arcade Game Station">
+                <span class="discount-badge">-10%</span>
+                <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06" alt="Console" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Gaming</span>
+                    <h3 class="product-title">Handheld Arcade Game Station</h3>
+                    <div class="rating-box">★★★★☆ <span>(159)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$89.00</span>
+                        <span class="old-price">$99.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-category="fashion" data-title="Heavyweight Fleece Hoodie">
+                <span class="discount-badge">-35%</span>
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27" alt="Hoodie" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Fashion</span>
+                    <h3 class="product-title">Heavyweight Fleece Hoodie</h3>
+                    <div class="rating-box">★★★★★ <span>(412)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$39.00</span>
+                        <span class="old-price">$60.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product-card" data-category="accessories" data-title="Slim RFID Blocking Leather Wallet">
+                <span class="discount-badge">-20%</span>
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3" alt="Wallet" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Accessories</span>
+                    <h3 class="product-title">Slim RFID Blocking Leather Wallet</h3>
+                    <div class="rating-box">★★★★☆ <span>(93)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$28.00</span>
+                        <span class="old-price">$35.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product-card" data-category="accessories" data-title="Classic Gold Mesh Watch">
+                <span class="discount-badge">-15%</span>
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d" alt="Watch" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Accessories</span>
+                    <h3 class="product-title">Classic Gold Mesh Watch</h3>
+                    <div class="rating-box">★★★★★ <span>(180)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$110.00</span>
+                        <span class="old-price">$130.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MID-PAGE BANNER 2 -->
+        <div class="promo-banner banner-blue">
+            <div>
+                <h2>✨ Trending Lifestyle & Apparel Specials</h2>
+                <p>Revamp your wardrobe with high-quality seasonal styles.</p>
+            </div>
+            <a href="#product-section" class="promo-btn btn-white" onclick="filterDropdownByValue('fashion')">Shop Apparel</a>
+        </div>
+
+        <!-- PRODUCT GRID PART 3 (Items 17 - 20) -->
+        <div class="product-grid mb-extra">
+            <!-- Product 17 -->
+            <div class="product-card" data-category="fashion" data-title="Vintage Biker Leather Jacket">
+                <span class="discount-badge">-30%</span>
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5" alt="Jacket" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Fashion</span>
+                    <h3 class="product-title">Vintage Biker Leather Jacket</h3>
+                    <div class="rating-box">★★★★★ <span>(230)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$140.00</span>
+                        <span class="old-price">$200.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" data-category="home" data-title="Floral Bloom Luxury Fragrance">
+                <span class="discount-badge">-25%</span>
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601" alt="Perfume" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Beauty</span>
+                    <h3 class="product-title">Floral Bloom Luxury Fragrance</h3>
+                    <div class="rating-box">★★★★☆ <span>(95)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$67.00</span>
+                        <span class="old-price">$90.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product-card" data-category="fashion" data-title="Distressed Indigo Denim Jacket">
+                <span class="discount-badge">-40%</span>
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b" alt="Denim" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Fashion</span>
+                    <h3 class="product-title">Distressed Indigo Denim Jacket</h3>
+                    <div class="rating-box">★★★★★ <span>(144)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$54.00</span>
+                        <span class="old-price">$90.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product-card" data-category="home" data-title="Insulated Stainless Steel Bottle">
+                <span class="discount-badge">-20%</span>
+                <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80" alt="Bottle" class="product-img">
+                <div class="product-info">
+                    <span class="product-category-tag">Home</span>
+                    <h3 class="product-title">Insulated Stainless Steel Bottle</h3>
+                    <div class="rating-box">★★★★★ <span>(389)</span></div>
+                    <div class="price-row">
+                        <span class="product-price">$24.00</span>
+                        <span class="old-price">$30.00</span>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart & Buy</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ShopEasy Inc. All Rights Reserved. Thank you for choosing ShopEasy Shopping.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const productCards = document.querySelectorAll(".product-card");
+            
+            productCards.forEach(card => {
+                card.style.cursor = "pointer";
+                card.addEventListener("click", (e) => {
+                    // Safely prevent redirect if clicking anywhere on the "Add to Cart" button
+                    if (e.target.closest(".add-to-cart-btn")) return;
+
+                    const title = card.getAttribute("data-title");
+                    const category = card.querySelector(".product-category-tag").textContent;
+                    const price = card.querySelector(".product-price").textContent;
+                    const oldPrice = card.querySelector(".old-price").textContent;
+                    const img = card.querySelector(".product-img").src;
+
+                    window.location.href = `product-detail.html?title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}&oldPrice=${encodeURIComponent(oldPrice)}&img=${encodeURIComponent(img)}&category=${encodeURIComponent(category)}`;
+                });
+            });
+        });
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if(element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function filterProducts() {
+            let input = document.getElementById('productSearchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                let title = card.getAttribute('data-title').toLowerCase();
+                if(title.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function filterByCategoryDropdown(categoryOverride) {
+            let selectedCategory = categoryOverride || document.getElementById('categorySelect').value;
+            if (categoryOverride) {
+                document.getElementById('categorySelect').value = categoryOverride;
+            }
+            let cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                let cat = card.getAttribute('data-category');
+                if(selectedCategory === 'all' || cat === selectedCategory) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            scrollToSection('product-section');
+        }
+
+        function filterDropdownByValue(catValue) {
+            document.getElementById('categorySelect').value = catValue;
+            filterByCategoryDropdown(catValue);
+        }
+    </script>
+    
+    <!-- Corrected JavaScript Folder References -->
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+
+</body>
+</html>
